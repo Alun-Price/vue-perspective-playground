@@ -14,6 +14,12 @@ let vm = Vue.createApp({
         (this.rotateY = 0),
         (this.rotateZ = 0);
     },
+    async copy() {
+      let text = `${this.box_style}`;
+      await navigator.clipboard.writeText(text);
+
+      alert("CSS copied to clipboard");
+    },
   },
   computed: {
     box_style() {
@@ -26,7 +32,7 @@ let vm = Vue.createApp({
         this.rotateY +
         "deg) rotateZ(" +
         this.rotateZ +
-        "deg)"
+        "deg);"
       );
     },
   },
